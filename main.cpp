@@ -3,32 +3,31 @@
 #include "Set.h"
 using namespace std;
 
-void add2(Set *set)
+void add1(Set *set)
 {
 	Element el("1");
 	Element el1("2");
 	Element el2("3");
+	Element el3("7");
 
 	set->add(el);
 	set->add(el1);
-	set->add(el2);	
+	set->add(el3);
+	set->add(el);
+	set->add(el1);
+	set->add(el3);
 }
 
 void add(Set *set)
 {
-	Element el("1234");
-	Element el1("9");
-	Element el2("1");
-	Element el3("12");
-	Element el4("1234");
-	Element el5("23");
+	Element el("1");
+	Element el1("2");
+	Element el2("3");
+	Element el3("4");
+	Element el4("5");
+	Element el5("6");
 
-	el = 0;
-	el1 -= 4;
-	el2 += 9;
-	el3 += 3;
-
-	set->add(el);
+	set->add(el);	
 	set->add(el1);
 	set->add(el2);
 	set->add(el3);
@@ -40,29 +39,17 @@ int main()
 {
 	Set* st = new Set;
 	add(st);
-	add2(st);
-
-	st->print();
-	cout << endl << "Adding new set...\n";
-
-	Set* st3 = new Set;
-	add2(st3);
-
+		
 	Set* st1 = new Set;
-	add(st1);
-	st1->add(st3);
-	st->add(st1);
-	st->print();
+	add1(st1);
 
-	Element* el2 = new Element("10");
-	cout << "\nerasing 10...\n";
-	st->erase(el2);
 	st->print();
+	cout << endl;
+	st1->print();
 
-	cout << "\nerasing set1...\n";
-	st->erase(st1);
-	st->print();
-
+	Set* st2 = st->ñartesianMult(st1);
+	cout << endl;
+	st2->print();
 
 	cin.get();
 	cin.get();
