@@ -207,7 +207,3 @@ size_t Set::getSize()
 {
 	return set.size();
 }
-
-
-
-

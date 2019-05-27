@@ -108,6 +108,29 @@ int ckeckAssigmentToFunction(string str)
 	return regConstants::FALSE;
 }
 
+int ckeckReturn(string str)
+{
+	std::regex e(regConstants::ret);
+	if (std::regex_match(str, e))
+		return regConstants::RET;
+	return regConstants::FALSE;
+}
+
+int ckeckEmpty(string str)
+{
+	std::regex e(regConstants::empty);
+	if (std::regex_match(str, e))
+		return regConstants::EMPTY;
+	return regConstants::FALSE;
+}
+
+int ckeckDoFunction(string str)
+{
+	std::regex e(regConstants::doFunction);
+	if (std::regex_match(str, e))
+		return regConstants::FUNCDO;
+	return regConstants::FALSE;
+}
 
 int ckeckAssigmentOperation(string str)
 {
@@ -134,7 +157,9 @@ int(*pointsToCheckFs[])(string line) =
 	ckeckUnaryPlus,
 	ckeckAssigmentToFunction,	
 	ckeckAssigmentOperation,
-	
+	ckeckReturn,
+	ckeckEmpty,
+	ckeckDoFunction,
 	NULL
 };
 
