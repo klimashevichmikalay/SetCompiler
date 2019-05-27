@@ -15,7 +15,7 @@ private:
 public:
 
 	Element();
-	Element(string _value);	
+	Element(string _value);
 	bool operator==(const int &i);
 	void operator=(const int &i);
 	void operator+=(const int &i);

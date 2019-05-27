@@ -1,57 +1,49 @@
 #include <iostream>
-#include "Element.h"
-#include "Set.h"
+#include <iostream>
+#include <string>
+#include <regex>
+#include "tests.h"
+#include "CheckSyntax.h"
+#include "RegexConstants.h"
+
 using namespace std;
+using namespace std::regex_constants;
 
-void add1(Set *set)
-{
-	Element el("1");
-	Element el1("2");
-	Element el2("3");
-	Element el3("7");
-
-	set->add(el);
-	set->add(el1);
-	set->add(el3);
-	set->add(el);
-	set->add(el1);
-	set->add(el3);
-}
-
-void add(Set *set)
-{
-	Element el("1");
-	Element el1("2");
-	Element el2("3");
-	Element el3("4");
-	Element el4("5");
-	Element el5("6");
-
-	set->add(el);	
-	set->add(el1);
-	set->add(el2);
-	set->add(el3);
-	set->add(el4);
-	set->add(el5);
-}
+void startTests();
+int ckeckSet(string str);
 
 int main()
 {
-	Set* st = new Set;
-	add(st);
-		
-	Set* st1 = new Set;
-	add1(st1);
+	startTests();
 
-	st->print();
-	cout << endl;
-	st1->print();
-
-	Set* st2 = st->ñartesianMult(st1);
-	cout << endl;
-	st2->print();
+	//cout << ckeckSet("Set set;");
 
 	cin.get();
 	cin.get();
 	return 0;
+}
+
+//
+
+void startTests()
+{
+	cout << "\nStart tests...\n";
+
+	int i = 0;
+	
+	while (tests[i] != NULL)
+	{
+		tests[i]();
+		i++;
+	}
+
+	cout << "\n\nEnd tests...\n";
+}
+
+int ckeckSet(string str)
+{
+	std::regex e(regConstants::announcementSet);
+	if (std::regex_match(str, e))
+		return regConstants::ANNSET;
+	return regConstants::FALSE;
 }

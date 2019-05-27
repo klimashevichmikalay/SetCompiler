@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -38,7 +37,5 @@ public:
 	Set* unite(Set* _set);
 	void unique();
 };
-
-
 
 
