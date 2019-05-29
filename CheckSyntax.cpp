@@ -32,11 +32,19 @@ int ckeckFunctionVoid(string str)
 	return regConstants::FALSE;
 }
 
-int ckeckFunction(string str)
+int ckeckFunctionSet(string str)
 {
-	std::regex e(regConstants::function);
+	std::regex e(regConstants::functionSet);
 	if (std::regex_match(str, e))
-		return regConstants::FUNC;
+		return regConstants::FUNCSET;
+	return regConstants::FALSE;
+}
+
+int ckeckFunctionElement(string str)
+{
+	std::regex e(regConstants::functionElement);
+	if (std::regex_match(str, e))
+		return regConstants::FUNCEL;
 	return regConstants::FALSE;
 }
 
@@ -72,11 +80,19 @@ int ckeckAdd(string str)
 	return regConstants::FALSE;
 }
 
-int ckeckBrace(string str)
+int ckeckOpenBrace(string str)
 {
-	std::regex e(regConstants::brace);
+	std::regex e(regConstants::openBrace);
 	if (std::regex_match(str, e))
-		return regConstants::BR;
+		return regConstants::OPENBR;
+	return regConstants::FALSE;
+}
+
+int ckeckCloseBrace(string str)
+{
+	std::regex e(regConstants::closeBrace);
+	if (std::regex_match(str, e))
+		return regConstants::CLOSEBR;
 	return regConstants::FALSE;
 }
 
@@ -141,28 +157,6 @@ int ckeckAssigmentOperation(string str)
 }
 
 
-int(*pointsToCheckFs[])(string line) =
-{
-	ckeckAnnouncementElement,
-	ckeckAnnouncementSet,
-	ckeckFunctionVoid,
-	ckeckFunction,
-	ckeckAssignmentElement,
-	ckeckAssignment,
-	ckeckErase,
-	ckeckAdd,
-	ckeckInclude,
-	ckeckBrace,
-	ckeckUnaryMinus,
-	ckeckUnaryPlus,
-	ckeckAssigmentToFunction,	
-	ckeckAssigmentOperation,
-	ckeckReturn,
-	ckeckEmpty,
-	ckeckDoFunction,
-	NULL
-};
-
 int checkLine(string line)
 {
 	int i = 0;
@@ -172,8 +166,32 @@ int checkLine(string line)
 	{
 		res = pointsToCheckFs[i](line);
 		if (res)
-		return res;
+			return res;
 		i++;
 	}
 	return 0;
 }
+
+int(*pointsToCheckFs[])(string line) =
+{
+	ckeckAnnouncementElement,
+	ckeckAnnouncementSet,
+	ckeckFunctionVoid,
+	ckeckFunctionSet,
+	ckeckFunctionElement,
+	ckeckAssignmentElement,
+	ckeckAssignment,
+	ckeckErase,
+	ckeckAdd,
+	ckeckInclude,
+	ckeckOpenBrace,
+	ckeckCloseBrace,
+	ckeckUnaryMinus,
+	ckeckUnaryPlus,
+	ckeckAssigmentToFunction,	
+	ckeckAssigmentOperation,
+	ckeckReturn,
+	ckeckEmpty,
+	ckeckDoFunction,
+	NULL
+};

@@ -1,10 +1,9 @@
 #pragma once
-
 class BaseClass
 {
 public:
 
-	enum type { ELEMENT, SET, BASE };
+    enum type { VOID, ELEMENT, SET };
 
 	virtual void print() = 0;
 

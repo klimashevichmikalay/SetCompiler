@@ -47,12 +47,14 @@ void test4()
 {
 	cout << "\ntest4";
 	assert(FUNCVOID == checkLine("function f() "));
+	assert(FUNCVOID == checkLine("function func()"));
 	assert(FALSE == checkLine("Set set()"));
 	assert(FUNCVOID == checkLine("function f(el1, el2)"));
 	assert(FUNCDO == checkLine("  functionf(el1, el2)"));
 	assert(FUNCVOID == checkLine("function f()"));
 	assert(FUNCVOID != checkLine("function Set f()"));
 	assert(FUNCVOID != checkLine("function  f ()"));
+	assert(ANNSET == checkLine("Set set"));
 }
 
 //testing annonse function  syntax
@@ -60,13 +62,13 @@ void test4()
 void test5()
 {
 	cout << "\ntest5";
-	assert(FUNC == checkLine("function Element f()"));
+	assert(FUNCEL == checkLine("function Element f()"));
 	assert(FUNCVOID == checkLine("function f()"));
 	assert(FUNCVOID != checkLine("include file.txt"));
 	assert(FUNCDO == checkLine("functionf(el1, el2)"));
-	assert(FUNC == checkLine("function Set f()"));
-	assert(FUNC != checkLine("function  f()"));
-	assert(FUNC != checkLine("function Element f ()"));
+	assert(FUNCSET == checkLine("function Set f()"));
+	assert(FUNCVOID == checkLine("function  f()"));
+	assert(FUNCEL != checkLine("function Element f ()"));
 }
 
 //testing elem asigm.  syntax
@@ -168,6 +170,20 @@ void test13()
 	assert(EMPTY != checkLine("a = b"));
 	assert(EMPTY != checkLine("a = a1 * b"));
 	assert(EMPTY != checkLine("f (a, b)"));
+	assert(EMPTY == checkLine("//f (a, b)"));
+}
+
+//test brace
+void test14()
+{
+	cout << "\ntest14";
+	assert(OPENBR == checkLine("{"));
+	assert(OPENBR == checkLine(" {  "));
+	assert(OPENBR != checkLine(" "));
+	assert(OPENBR != checkLine(""));
+	assert(CLOSEBR == checkLine("}"));
+	assert(CLOSEBR == checkLine(" } "));
+	assert(CLOSEBR != checkLine("{"));
 }
 
 void(*tests[])() =
@@ -185,5 +201,21 @@ void(*tests[])() =
 	test11,
 	test12,
 	test13,
+	test14,
 	NULL
 };
+
+void startTests()
+{
+	cout << "\nStart tests...\n";
+
+	int i = 0;
+
+	while (tests[i] != NULL)
+	{
+		tests[i]();
+		i++;
+	}
+
+	cout << "\n\nEnd tests...\n";
+}
