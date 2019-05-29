@@ -156,6 +156,21 @@ int ckeckAssigmentOperation(string str)
 	return regConstants::FALSE;
 }
 
+int ckeckPrintVar(string str)
+{
+	std::regex e(regConstants::printVar);
+	if (std::regex_match(str, e))
+		return regConstants::PRINTVAR;
+	return regConstants::FALSE;
+}
+
+int ckeckPrintText(string str)
+{
+	std::regex e(regConstants::printText);
+	if (std::regex_match(str, e))
+		return regConstants::PRINTTEXT;
+	return regConstants::FALSE;
+}
 
 int checkLine(string line)
 {
@@ -174,6 +189,8 @@ int checkLine(string line)
 
 int(*pointsToCheckFs[])(string line) =
 {
+	ckeckPrintVar,
+	ckeckPrintText,
 	ckeckAnnouncementElement,
 	ckeckAnnouncementSet,
 	ckeckFunctionVoid,
@@ -192,6 +209,6 @@ int(*pointsToCheckFs[])(string line) =
 	ckeckAssigmentOperation,
 	ckeckReturn,
 	ckeckEmpty,
-	ckeckDoFunction,
+	ckeckDoFunction,	
 	NULL
 };

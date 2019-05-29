@@ -28,6 +28,8 @@ int ckeckReturn(string str);
 int ckeckEmpty(string str);
 int ckeckDoFunction(string str);
 int ckeckAssigmentOperation(string str);
+int ckeckPrintVar(string str);
+int ckeckPrintText(string str);
 int checkLine(string line);
 
 

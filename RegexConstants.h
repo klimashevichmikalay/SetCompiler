@@ -25,7 +25,9 @@ namespace regConstants
 		FUNCDO,
 		ASSOP,
 		RET,
-		EMPTY
+		EMPTY,
+		PRINTVAR,
+		PRINTTEXT
 	};
 
 	const string include = "^[ ]*(include)[ ]+[a-zA-Z0-9_\\.]+[ ]*[ ]*$";
@@ -44,9 +46,12 @@ namespace regConstants
 	const string closeBrace = "^[ ]*(\\}){1}[ ]*$";
 	const string assigmentToFunction = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z]+\\(.*\\)[ ]*[ ]*$";//" el = f(g) ; "	
 	const string assigmentOperation = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z0-9_]+[ ]+[\\*\\-\\+\\~]{1}[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";	
-	const string ret = "^[ ]*(return)[ ]+[a-zA-Z]+[ ]*$";
+	const string ret = "^[ ]*(return)[ ]+[a-zA-Z0-9_]+[ ]*$";
 	const string empty = "^(\\/\\/.*)|([ ]*)$";
-	const string doFunction = "^[ ]*[a-zA-Z]+\\(.*\\)[ ]*$";
+	const string doFunction = "^[ ]*(print){0}[a-zA-Z]+\\(([^\'^\\)]*)\\)[ ]*$";
+	const string printVar = "^[ ]*(print)\\([ ]*[a-zA-Z0-9_]+[ ]*\\)[ ]*$";	
+	const string printText = "^[ ]*(print)\\([ ]*\'[^\']+\'[ ]*\\)[ ]*$";
+	
 }
 
 

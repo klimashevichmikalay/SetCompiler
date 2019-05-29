@@ -14,13 +14,13 @@ class Function
 {
 private:
 
-	BaseClass::type retType;//+
-	string name;//+
-	string file;//+
+	BaseClass::type retType;
+	string name;
+	string file;
 	map<string, BaseClass*> variables;//-
-	vector<string> code;//-
-	map<string, BaseClass::type> parameters;//+
-	int startLine;//+
+	vector<string> code;
+	map<string, BaseClass::type> parameters;
+	int startLine;
 
 public:
 

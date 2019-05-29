@@ -186,6 +186,19 @@ void test14()
 	assert(CLOSEBR != checkLine("{"));
 }
 
+//test print
+void test15()
+{
+	cout << "\ntest15";
+	assert(PRINTTEXT == checkLine("print('hello')"));
+	assert(PRINTTEXT == checkLine("  print( ' hello434  '  )   "));
+    assert(PRINTTEXT != checkLine("print(a) "));
+	lineType lt = (lineType)checkLine("  print(a)  ");
+	assert(PRINTVAR == checkLine("  print(a)  "));
+	assert(PRINTVAR == checkLine("print(a)"));	
+	assert(PRINTVAR != checkLine("print('hello')"));
+}
+
 void(*tests[])() =
 {
 	test1,
@@ -202,6 +215,7 @@ void(*tests[])() =
 	test12,
 	test13,
 	test14,
+	test15,
 	NULL
 };
 
