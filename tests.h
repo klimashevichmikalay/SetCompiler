@@ -50,7 +50,7 @@ void test4()
 	assert(FUNCVOID == checkLine("function func()"));
 	assert(FALSE == checkLine("Set set()"));
 	assert(FUNCVOID == checkLine("function f(el1, el2)"));
-	assert(FUNCDO == checkLine("  functionf(el1, el2)"));
+	assert(FUNCDO == checkLine("  functionf()"));
 	assert(FUNCVOID == checkLine("function f()"));
 	assert(FUNCVOID != checkLine("function Set f()"));
 	assert(FUNCVOID != checkLine("function  f ()"));
@@ -89,7 +89,7 @@ void test7()
 	cout << "\ntest7";
 	assert(ADD == checkLine("a << b"));
 	assert(ADD != checkLine("a<<b"));
-	assert(ADD != checkLine("a << 1"));
+	assert(ADD == checkLine("a << 1"));
 	assert(ERASE == checkLine("a >> b"));
 	assert(ERASE != checkLine("a>>1"));
 	assert(ADD == checkLine("  a << q"));

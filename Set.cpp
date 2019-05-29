@@ -80,7 +80,6 @@ void Set::erase(BaseClass* _toComp)
 
 		newSet.push_back(set[i]);
 	}
-
 	this->set = newSet;
 }
 

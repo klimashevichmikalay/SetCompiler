@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-//	startTests();
+	//startTests();
 
-	Compiler comp;
+   Compiler comp;
    comp.compile("file.txt");
 
 	cin.get();

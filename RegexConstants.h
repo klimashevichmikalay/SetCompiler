@@ -14,22 +14,24 @@ namespace regConstants
 		FUNCSET,//+	
 		FUNCEL,//+
 		ASSEL,//+
-		ASS,
-		ADD,
-		ERASE,
-		OPENBR,
-		CLOSEBR,
-		UNARYMINUS,
-		UNARYPLUS,
+		ASS,//+
+		ADD,//+
+		ERASE,//+
+		OPENBR,//+
+		CLOSEBR,//+		
 		ANNSET,//+
 		ANNEL,//+
-		ASSFUNC,
-		FUNCDO,
-		ASSOP,
 		RET,//+
-		EMPTY,//+
-		PRINTVAR,
-		PRINTTEXT//+
+		EMPTY,//+		
+		PRINTTEXT,//+
+		UNARYMINUS,//+
+		UNARYPLUS,//+
+		PRINTVAR,//+
+		ASSOP,
+		FUNCDO,
+		ASSFUNC,
+		IF,
+		FOR	
 	};
 
 	const string include = "^[ ]*(include)[ ]+[a-zA-Z0-9_\\.]+[ ]*[ ]*$";
@@ -40,8 +42,8 @@ namespace regConstants
 	const string functionElement = "^[ ]*(function)[ ]+(Element){1}[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*$";
 	const string assignment = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";
 	const string assignmentElement = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[0-9]+[ ]*[ ]*$";
-	const string  add = "^[ ]*[a-zA-Z0-9_]+[ ]+\\<\\<[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el << el ; "
-	const string  erase = "^[ ]*[a-zA-Z0-9_]+[ ]+\\>\\>[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el >> el ; "
+	const string  add = "^[ ]*[a-zA-Z0-9_]+[ ]+\\<\\<[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";//" el << el ; "
+	const string  erase = "^[ ]*[a-zA-Z0-9_]+[ ]+\\>\\>[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";//" el >> el ; "
 	const string unaryMinus = "^[ ]*[a-zA-Z0-9_]+[ ]+(\\-=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
 	const string unaryPlus = "^[ ]*[a-zA-Z0-9_]+[ ]+(\\+=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
 	const string openBrace = "^[ ]*(\\{){1}[ ]*$";

@@ -4,6 +4,11 @@
 #include "AnnouncementElement.h";
 #include "AssigmentElement.h";
 #include "Assigment.h";
+#include "Add.h";
+#include "Erase.h";
+#include "UnaryMinus.h";
+#include "UnaryPlus.h";
+#include "PrintVar.h";
 
 Compiler::Compiler()
 {
@@ -26,6 +31,21 @@ void Compiler::setCommands()
 
 	Assigment *ass = new Assigment();
 	commands.insert(pair<lineType, Assigment*>(ASS, ass));	
+
+	Add *add = new Add();
+	commands.insert(pair<lineType, Add*>(ADD, add));
+
+	Erase *erase = new Erase();
+	commands.insert(pair<lineType, Erase*>(ERASE, erase));
+
+	UnaryMinus *unmin = new UnaryMinus();
+	commands.insert(pair<lineType, UnaryMinus*>(UNARYMINUS, unmin));
+
+	UnaryPlus *unplus = new UnaryPlus();
+	commands.insert(pair<lineType, UnaryPlus*>(UNARYPLUS, unplus));
+
+	PrintVar *printvar = new PrintVar();
+	commands.insert(pair<lineType, PrintVar*>(PRINTVAR, printvar));
 }
 
 void  Compiler::compile(string _path)

@@ -3,16 +3,14 @@
 Function::Function() {};
 
 void Function::execute()
-{
-	int sz = 0;
+{	
 	for (int i = 0; i < code.size(); i++)
 	{
 		lineType lt = (lineType)checkLine(code[i]);
-		if (lt == EMPTY)
+		if (lt == EMPTY || lt == RET)
 			continue;
-		commands.find(lt)->second->executeInstruction(functions, variables, code[i], this);
-		 sz = variables.size();
-	}
+		commands.find(lt)->second->executeInstruction(functions, variables, code[i], this);		
+	}	
 }
 
 void  Function::setFunctions(vector<Function*> _functions)
