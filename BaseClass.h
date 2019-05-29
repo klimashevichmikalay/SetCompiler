@@ -12,5 +12,7 @@ public:
 
 	virtual	bool equals(BaseClass*, BaseClass*) = 0;
 
+	virtual	void setValue(string _value) = 0;
+
 	virtual BaseClass* getAt(int p) { return nullptr; };
 };

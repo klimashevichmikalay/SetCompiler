@@ -4,12 +4,14 @@ Function::Function() {};
 
 void Function::execute()
 {
+	int sz = 0;
 	for (int i = 0; i < code.size(); i++)
 	{
-		
-		commands.find((lineType)checkLine(code[i]))->second->executeInstruction(functions, variables, code[i]);
-		cin.get();
-		cin.get();
+		lineType lt = (lineType)checkLine(code[i]);
+		if (lt == EMPTY)
+			continue;
+		commands.find(lt)->second->executeInstruction(functions, variables, code[i], this);
+		 sz = variables.size();
 	}
 }
 
@@ -46,6 +48,18 @@ vector<string> Function::splitHeader(string str)
 	SyntaxParser sp;
 	return  sp.split(str, ' ');
 }
+
+bool Function::isAlreadyExists(string name)
+{  
+	if (variables.size() == 0)
+		return false;
+
+	if (variables.find(name) != variables.end())
+		return true;
+
+	return false;
+}
+
 
 void Function::setInfo(string _header, type _t)
 {

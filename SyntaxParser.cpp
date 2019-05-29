@@ -59,7 +59,7 @@ bool SyntaxParser::checkSyntaxInFile(string _path)
 		if (FALSE == checkLine(vecOfStrs[i]))
 		{
 			cout << "\nError: Syntax error in file " << _path << " at line " << i + 1 << ".";
-			result = false;
+			result = false;			
 		}
 
 		if (INC == checkLine(vecOfStrs[i]))

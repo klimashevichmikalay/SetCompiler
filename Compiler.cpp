@@ -1,5 +1,10 @@
 #include "Compiler.h"
 #include "CommandPrintText.h"
+#include "AnnouncementSet.h";
+#include "AnnouncementElement.h";
+#include "AssigmentElement.h";
+#include "Assigment.h";
+
 Compiler::Compiler()
 {
 	setCommands();
@@ -7,8 +12,20 @@ Compiler::Compiler()
 
 void Compiler::setCommands()
 {
-	CommandPrintText* printtex = new CommandPrintText();	
+	CommandPrintText*printtex = new CommandPrintText();	
 	commands.insert(pair<lineType, CommandPrintText*>(PRINTTEXT, printtex));	
+
+	AnnouncementSet *annset = new AnnouncementSet();
+	commands.insert(pair<lineType, AnnouncementSet*>(ANNSET, annset));
+
+	AnnouncementElement *annel = new AnnouncementElement();
+	commands.insert(pair<lineType, AnnouncementElement*>(ANNEL, annel));
+	//
+	AssigmentElement *assel = new AssigmentElement();
+	commands.insert(pair<lineType, AssigmentElement*>(ASSEL, assel));
+
+	Assigment *ass = new Assigment();
+	commands.insert(pair<lineType, Assigment*>(ASS, ass));	
 }
 
 void  Compiler::compile(string _path)

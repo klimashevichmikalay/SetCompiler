@@ -8,12 +8,12 @@ namespace regConstants
 	enum type { VOID, ELEMENT, SET };
 
 	enum lineType {
-		FALSE = 0,
-		INC,
-		FUNCVOID,
-		FUNCSET,	
-		FUNCEL,
-		ASSEL,
+		FALSE = 0,//+
+		INC,//+
+		FUNCVOID,//+
+		FUNCSET,//+	
+		FUNCEL,//+
+		ASSEL,//+
 		ASS,
 		ADD,
 		ERASE,
@@ -21,15 +21,15 @@ namespace regConstants
 		CLOSEBR,
 		UNARYMINUS,
 		UNARYPLUS,
-		ANNSET,
-		ANNEL,
+		ANNSET,//+
+		ANNEL,//+
 		ASSFUNC,
 		FUNCDO,
 		ASSOP,
-		RET,
-		EMPTY,
+		RET,//+
+		EMPTY,//+
 		PRINTVAR,
-		PRINTTEXT
+		PRINTTEXT//+
 	};
 
 	const string include = "^[ ]*(include)[ ]+[a-zA-Z0-9_\\.]+[ ]*[ ]*$";
@@ -38,19 +38,19 @@ namespace regConstants
 	const string functionVoid = "^[ ]*(function)[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*$";
 	const string functionSet = "^[ ]*(function)[ ]+(Set){1}[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*$";
 	const string functionElement = "^[ ]*(function)[ ]+(Element){1}[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*$";
-	const string assignment = "^[ ]*[a-zA-Z]+[ ]+\\=[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";
-	const string assignmentElement = "^[ ]*[a-zA-Z]+[ ]+\\=[ ]+[0-9]+[ ]*[ ]*$";
-	const string  add = "^[ ]*[a-zA-Z]+[ ]+\\<\\<[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el << el ; "
-	const string  erase = "^[ ]*[a-zA-Z]+[ ]+\\>\\>[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el >> el ; "
-	const string unaryMinus = "^[ ]*[a-zA-Z]+[ ]+(\\-=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
-	const string unaryPlus = "^[ ]*[a-zA-Z]+[ ]+(\\+=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
+	const string assignment = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";
+	const string assignmentElement = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[0-9]+[ ]*[ ]*$";
+	const string  add = "^[ ]*[a-zA-Z0-9_]+[ ]+\\<\\<[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el << el ; "
+	const string  erase = "^[ ]*[a-zA-Z0-9_]+[ ]+\\>\\>[ ]+[a-zA-Z]+[ ]*[ ]*$";//" el >> el ; "
+	const string unaryMinus = "^[ ]*[a-zA-Z0-9_]+[ ]+(\\-=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
+	const string unaryPlus = "^[ ]*[a-zA-Z0-9_]+[ ]+(\\+=){1}[ ]+[0-9]+[ ]*[ ]*$";//" el -= t ; "
 	const string openBrace = "^[ ]*(\\{){1}[ ]*$";
 	const string closeBrace = "^[ ]*(\\}){1}[ ]*$";
-	const string assigmentToFunction = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z]+\\(.*\\)[ ]*[ ]*$";//" el = f(g) ; "	
+	const string assigmentToFunction = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*[ ]*$";//" el = f(g) ; "	
 	const string assigmentOperation = "^[ ]*[a-zA-Z0-9_]+[ ]+\\=[ ]+[a-zA-Z0-9_]+[ ]+[\\*\\-\\+\\~]{1}[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";	
 	const string ret = "^[ ]*(return)[ ]+[a-zA-Z0-9_]+[ ]*$";
 	const string empty = "^(\\/\\/.*)|([ ]*)$";
-	const string doFunction = "^[ ]*(print){0}[a-zA-Z]+\\(([^\'^\\)]*)\\)[ ]*$";
+	const string doFunction = "^[ ]*(print){0}[a-zA-Z0-9_]+\\(([^\'^\\)]*)\\)[ ]*$";
 	const string printVar = "^[ ]*(print)\\([ ]*[a-zA-Z0-9_]+[ ]*\\)[ ]*$";	
 	const string printText = "^[ ]*(print)\\([ ]*\'[^\']+\'[ ]*\\)[ ]*$";
 	

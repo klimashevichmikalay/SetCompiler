@@ -38,6 +38,9 @@ public:
 	Set* ñartesianMult(Set* _set);
 	Set* unite(Set* _set);
 	void unique();
+
+	void setValue(string _value) {};
+
 };
 
 

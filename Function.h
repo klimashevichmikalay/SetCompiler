@@ -23,12 +23,12 @@ private:
 	string name;
 	string file;
 	string returnedValueName;
-	map<string, BaseClass*> variables;//-
+	map<string, BaseClass*> variables;
 	vector<string> code;
 	map<string, type> parameters;
 	int startLine;
 	vector<Function*> functions;
-	map <lineType, ICommand*> commands;
+	map <lineType, ICommand*> commands;	
 
 public:
 
@@ -58,11 +58,16 @@ public:
 	bool operator==(Function f);
 	void setFunctions(vector<Function*> _functions);
 	void setReturnedName();
+	bool isAlreadyExists(string name);
+	map<string, BaseClass*> &getVariables()
+	{
+		return this->variables;
+	}
 };
 
 class ICommand
 {
 public:
 
-	virtual void executeInstruction(std::vector<Function*> functions, map<string, BaseClass*> variables, string instruction) = 0;
+	virtual void executeInstruction(vector<Function*> functions, map<string, BaseClass*> variables, string instruction, Function* curFunction) = 0;
 };
