@@ -5,6 +5,8 @@ namespace regConstants
 {
 	using namespace std;
 
+	enum type { VOID, ELEMENT, SET };
+
 	enum lineType {
 		FALSE = 0,
 		INC,

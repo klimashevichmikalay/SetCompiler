@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "BaseClass.h"
+#include "RegexConstants.h"
 
 using namespace std;
 
@@ -24,5 +25,5 @@ public:
 	int getValue();
 	void setValue(string _value);
 	void print();
-	type getType();
+	regConstants::type getType();
 };

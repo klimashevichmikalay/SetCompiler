@@ -1,7 +1,15 @@
 #include "Compiler.h"
+#include "CommandPrintText.h"
+Compiler::Compiler()
+{
+	setCommands();
+};
 
-Compiler::Compiler() {};
-
+void Compiler::setCommands()
+{
+	CommandPrintText* printtex = new CommandPrintText();	
+	commands.insert(pair<lineType, CommandPrintText*>(PRINTTEXT, printtex));	
+}
 
 void  Compiler::compile(string _path)
 {
@@ -18,6 +26,11 @@ void  Compiler::compile(string _path)
 	if (mainFunc == nullptr)
 		return;
 
+	for (int j = 0; j < this->functions.size(); j++)
+	{
+		functions[j]->setFunctions(functions);
+	}
+
 	mainFunc->execute();
 }
 
@@ -25,7 +38,7 @@ Function *Compiler::isMainGood()
 {
 	for (int j = 0; j < this->functions.size(); j++)
 		if (functions[j]->getName() == "main" &&
-			functions[j]->getType() == BaseClass::VOID &&
+			functions[j]->getType() == VOID &&
 			functions[j]->getParameters().size() == 0)
 			return functions[j];
 
@@ -118,13 +131,13 @@ void Compiler::formFunctions(string _path)
 			Function* newFunc = new Function();
 
 			if (FUNCVOID == line)
-				newFunc->setInfo(vecOfStrs[i], BaseClass::VOID);
+				newFunc->setInfo(vecOfStrs[i], VOID);
 
 			if (FUNCSET == line)
-				newFunc->setInfo(vecOfStrs[i], BaseClass::SET);
+				newFunc->setInfo(vecOfStrs[i], SET);
 
 			if (FUNCEL == line)
-				newFunc->setInfo(vecOfStrs[i], BaseClass::ELEMENT);
+				newFunc->setInfo(vecOfStrs[i], ELEMENT);
 
 			newFunc->setFile(_path);
 			newFunc->setStartLine(i);
@@ -132,6 +145,8 @@ void Compiler::formFunctions(string _path)
 			int endFunc = addCode(newFunc, vecOfStrs, i);
 			if (endFunc > 0)
 			{
+				newFunc->setReturnedName();
+				newFunc->setCommands(this->commands);
 				functions.push_back(newFunc);
 				i = endFunc;
 			}

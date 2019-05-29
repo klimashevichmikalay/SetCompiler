@@ -1,5 +1,4 @@
 #pragma once
-#include <stdlib.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,6 +9,7 @@
 #include "Function.h"
 #include "RegexConstants.h"
 
+
 using namespace std;
 
 class Compiler
@@ -18,10 +18,12 @@ private:
 
 	SyntaxParser sp;
 	vector<Function*> functions;
+	map <lineType, ICommand*> commands;
 
 public:
 
 	Compiler();
+	void setCommands();
 	void compile(string _path);
 	Function *isMainGood();
 	bool isDuplicatesPrototypes();

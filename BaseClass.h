@@ -1,9 +1,10 @@
 #pragma once
+#include "RegexConstants.h"
+
+using namespace regConstants;
 class BaseClass
 {
-public:
-
-    enum type { VOID, ELEMENT, SET };
+public:    
 
 	virtual void print() = 0;
 

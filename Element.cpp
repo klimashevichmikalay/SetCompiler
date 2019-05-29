@@ -1,6 +1,9 @@
 #include "Element.h"
 
-Element::Element() {};
+Element::Element() 
+{
+	value = 0;
+}
 
 Element::Element(string _value)
 {
@@ -54,7 +57,7 @@ void Element::print()
 	cout << value << " ";
 }
 
-Element::type Element::getType()
+regConstants::type Element::getType()
 {
-	return ELEMENT;
+	return regConstants::ELEMENT;
 }

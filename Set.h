@@ -4,8 +4,10 @@
 #include <vector>
 #include "Element.h"
 #include "BaseClass.h"
+#include "RegexConstants.h"
 
 using namespace std;
+using namespace regConstants;
 
 class Set : public BaseClass
 {

@@ -1,10 +1,22 @@
 #include "Function.h"
-
+#include "CheckSyntax.h"
 Function::Function() {};
 
 void Function::execute()
 {
-	cout << "\nexecute in " << this->name << " in file " << this->file;
+	for (int i = 0; i < code.size(); i++)
+	{
+		
+		commands.find((lineType)checkLine(code[i]))->second->executeInstruction(functions, variables, code[i]);
+		cin.get();
+		cin.get();
+	}
+}
+
+void  Function::setFunctions(vector<Function*> _functions)
+{
+	this->functions = _functions;
+	
 }
 
 bool Function::operator==(Function _f)
@@ -15,10 +27,10 @@ bool Function::operator==(Function _f)
 	int sets = 0, els = 0;
 	
 	for (auto& item : this->parameters)
-		(item.second == BaseClass::ELEMENT) ? els++ : sets++;
+		(item.second == ELEMENT) ? els++ : sets++;
 
 	for (auto& item : _f.parameters)
-		(item.second == BaseClass::ELEMENT) ? els-- : sets--;	
+		(item.second == ELEMENT) ? els-- : sets--;	
 
 	if (sets != 0 | els != 0)
 		return false;
@@ -35,7 +47,7 @@ vector<string> Function::splitHeader(string str)
 	return  sp.split(str, ' ');
 }
 
-void Function::setInfo(string _header, BaseClass::type _t)
+void Function::setInfo(string _header, type _t)
 {
 	int shift = 2;
 	if (_t) shift++;
@@ -57,9 +69,9 @@ void Function::setInfo(string _header, BaseClass::type _t)
 	for (int i = shift; i < header.size(); i += 2)
 	{
 		if (header[i] == "Set")
-			parameters.insert(pair<string, BaseClass::type>(header[i + 1], BaseClass::SET));
+			parameters.insert(pair<string, type>(header[i + 1], SET));
 		else if (header[i] == "Element")
-			parameters.insert(pair<string, BaseClass::type>(header[i + 1], BaseClass::ELEMENT));
+			parameters.insert(pair<string, type>(header[i + 1], ELEMENT));
 		else
 		{
 			cout << "\nError: unknown type in function " << "\"" << _header << "\"." <<
@@ -75,14 +87,24 @@ void Function::setCode(vector<string> _code)
 	this->code = _code;
 }
 
+void Function::setReturnedName()
+{
+	for (int i = 0; i < this->code.size(); i++)
+	{
+	
+		lineType line = (lineType)checkLine(code[i]);
+		if (RET == line)
+		{
+			SyntaxParser sp;
+			this->returnedValueName = sp.split(code[i], ' ')[1];
+			break;
+		}
+	}
+}
+
 vector<string> Function::getCode()
 {
 	return this->code;
-}
-
-BaseClass::type Function::getType()
-{
-	return retType;
 }
 
 string Function::getName()
@@ -95,9 +117,14 @@ void Function::clearVariables()
 	variables.clear();
 }
 
-BaseClass* Function::getVariable(string name)
+BaseClass*  Function::getReturnedValue()
 {
-	return variables.find(name)->second;
+	return variables.find(returnedValueName)->second;
+}
+
+BaseClass*  Function::getVariable(string str)
+{
+	return variables.find(str)->second;
 }
 
 void Function::setFile(string _path)
@@ -119,7 +146,7 @@ int Function::getStartLine()
 	return this->startLine;
 }
 
-map<string, BaseClass::type> Function::getParameters()
+map<string, type> Function::getParameters()
 {
 	return parameters;
 }

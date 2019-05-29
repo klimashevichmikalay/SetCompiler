@@ -198,7 +198,7 @@ void Set::setSet(vector<BaseClass*> _set)
 	this->set = _set;
 }
 
-Set::type Set::getType()
+type Set::getType()
 {
 	return SET;
 }
