@@ -14,7 +14,9 @@ public:
 		{
 			cout << "\nError in operation in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if (curFunction->getVariable(sp.split(instruction, ' ')[0])->getType() != SET
@@ -23,7 +25,9 @@ public:
 		{
 			cout << "\nError in operation in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nthese operations are for sets.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if (sp.split(instruction, ' ')[3][0] == '+')

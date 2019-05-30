@@ -1,0 +1,66 @@
+function runExampleFunctions()
+{  
+//примеры перегрузок функций и вызова функций из цикла   
+    
+  print( 'in function runExampleFunctions' )
+  Element el 
+  Set set 
+  Set set2 
+     
+  print('examples functions overload') 
+  f() 
+  f(set) 
+  f(el) 
+  f(set, el) 
+  f(set, set2) 
+   
+  el = cycle() 
+  
+//в функции cycle()	5 раз вызвалась функция f(), затем она вернула значение, мы его присвоили элементу el
+
+  if(el)
+  {
+   print(el)
+  }
+
+}
+  
+function f()
+{ 
+  print('in f()')
+}
+ 
+function f(Set set)
+{
+  print('in f(Set set)')
+}
+ 
+function f(Element element)
+{
+  print('in f(Element element)')
+}
+ 
+function f(Set set, Element el1)
+{
+  print('in f(Set set, Element el1)')
+}
+ 
+function f(Set set, Set set1)
+{
+  print('in f(Set set, Set set1)')
+}
+ 
+function Element cycle()
+{  
+  print('example function in cycle')
+  
+  for(5)
+  {
+    f()
+  }
+   
+  Element el
+  el -= 123
+  
+  return el
+} 

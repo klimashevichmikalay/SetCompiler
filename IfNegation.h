@@ -21,8 +21,13 @@ public:
 				continue;
 
 			if (lt == CLOSEBR && !start)
+			{
 				cout << "\nError: required opening brace in IF in function \"" <<
-				curFunction->getName() << "\" at line " << curFunction->getCurLine() << "\.";
+					curFunction->getName() << "\" at line " << curFunction->getCurLine() << "\.";
+				cin.get();
+				cin.get();
+				exit(0);
+			}
 
 			if (lt == OPENBR && !end)
 			{
@@ -45,8 +50,9 @@ public:
 		if (!end || !start)
 		{
 			cout << "\nYou have problem with scopes." << "\nEnd programm.";
-			vector<string> v;
-			return v;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		return newCode;
@@ -61,7 +67,9 @@ public:
 		{
 			cout << "\nError: IF must have body \"" <<
 				curFunction->getName() << "\" at line " << curFunction->getCurLine() << "\.";
-			return nullptr;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		funcIf->setCode(newCode);

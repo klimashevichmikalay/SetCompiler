@@ -10,7 +10,7 @@ int main()
 	//startTests();
 
   Compiler comp;
-  comp.compile("file.txt");
+  comp.compile("programExample/main.txt");
 
 	cin.get();
 	cin.get();

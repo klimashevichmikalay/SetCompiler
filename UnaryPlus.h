@@ -14,14 +14,18 @@ public:
 		{
 			cout << "\nError in unary plus,in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if ((curFunction->getVariable((sp.split(instruction, ' '))[0])->getType()) == SET)
 		{
 			cout << "\nError in  unary plus in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nSet has not unary plus.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 		(*((Element*)curFunction->getVariable((sp.split(instruction, ' '))[0]))) += std::stoi(sp.split(instruction, ' ')[2]);;
 	}

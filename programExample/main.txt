@@ -1,0 +1,16 @@
+include programExample/exampleIfFor.txt
+include programExample/exampleSetsOperations.txt
+include programExample/exampleFunctions.txt
+
+
+function main()
+{
+  print('start in main')
+  
+  runIfFor()
+  runSetsOperations()
+  runExampleFunctions()  
+  
+  print('end main')
+
+}

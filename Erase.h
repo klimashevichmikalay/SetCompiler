@@ -14,14 +14,18 @@ public:
 		{
 			cout << "\nError in erase vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if ((curFunction->getVariable((sp.split(instruction, ' '))[0])->getType()) != SET)
 		{
 			cout << "\nError in erase vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nELement can not erase.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}		
 		((Set*)curFunction->getVariable((sp.split(instruction, ' '))[0]))->erase((curFunction->getVariable((sp.split(instruction, ' '))[2])));
 	}

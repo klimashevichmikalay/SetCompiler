@@ -14,7 +14,7 @@ public:
 		map<string, type> parameters;
 		map<string, BaseClass*> newVariables;
 
-		string funcProt = (sp.split(instruction, ' ')[2]);
+		string funcProt = (sp.split(instruction, '=')[1]);
 		vector<string> header = curFunction->splitHeader(funcProt);
 		if (sp.split(instruction, '(')[1].size() == 1)
 			prototype->setName(sp.split((sp.split(instruction, '(')[0]), ' ')[2]);

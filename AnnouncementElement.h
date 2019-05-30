@@ -12,7 +12,9 @@ public:
 		{
 			cout << "\nError in announcement ELement in function \"" << curFunction->getName() << "\" in file " <<
 				curFunction->getFile() << ":\nname \"" << sp.split(instruction, ' ')[1] << "\" is already exists.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		Element* el = new Element();		

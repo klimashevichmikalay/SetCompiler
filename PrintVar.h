@@ -16,7 +16,9 @@ public:
 		{
 			cout << "\nError in print in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 		curFunction->getVariable(v2[0])->print();
 	}

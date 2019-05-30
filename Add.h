@@ -14,14 +14,18 @@ public:
 		{
 			cout << "\nError in added vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if ((curFunction->getVariable((sp.split(instruction, ' '))[0])->getType()) != SET)
 		{
 			cout << "\nError in added vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\ncannot add to Element.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}	
 		((Set*)curFunction->getVariable((sp.split(instruction, ' '))[0]))->add((curFunction->getVariable((sp.split(instruction, ' '))[2])));
 	}

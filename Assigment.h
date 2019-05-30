@@ -14,7 +14,9 @@ public:
 		{
 			cout << "\nError in assigment vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar(s) is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if ((curFunction->getVariable((sp.split(instruction, ' '))[0])->getType()) != 
@@ -22,7 +24,9 @@ public:
 		{
 			cout << "\nError in assigment vars in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nno assignment is possible because variables\n have a different type.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}  	
 		
 		if((curFunction->getVariable((sp.split(instruction, ' '))[0]))->getType() == ELEMENT)

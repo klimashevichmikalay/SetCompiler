@@ -1,0 +1,60 @@
+function runSetsOperations()
+{
+  print('in function runSetsOperations') 
+
+  Set st
+  Set set1
+  
+//инициализация числами от 1 до 10  
+  st = initSet()
+  
+//инициализация числами 0, 3, 6 и т.д. всего - 10 чисел 
+//реализации этих функций в файле exampleIfFor 
+  set1 = initSetOdd()
+  
+  showDecartMult(set1, st)
+  showDiff(set1, st)
+  showInters(set1, st)  
+
+//теперь вернем объединение из другой функции 
+  Set summ 
+  summ = getSumm(set1, st)
+  
+  if(summ)
+  {
+     print(summ) 
+  }    
+}
+
+
+function Set getSumm(Set set1, Set set2)
+{
+  Set sum  
+  sum = set1 + set2
+  
+  return sum
+}
+
+function showDecartMult(Set set1, Set set2)
+{
+  Set mult  
+  mult = set1 * set2
+  print('it is mult:')
+  print(mult)
+}
+
+function showDiff(Set set1, Set set2)
+{
+  Set diff  
+   print('it is diff:')
+  diff = set1 - set2
+  print(diff)
+}
+
+function showInters(Set set1, Set set2)
+{
+  Set diff  
+   print('it is intersection')
+  diff = set1 ~ set2
+  print(diff)
+}

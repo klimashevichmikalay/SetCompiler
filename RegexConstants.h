@@ -35,7 +35,7 @@ namespace regConstants
 		ASSFUNC,//-		
 	};
 
-	const string include = "^[ ]*(include)[ ]+[a-zA-Z0-9_\\.]+[ ]*[ ]*$";
+	const string include = "^[ ]*(include)[ ]+.*$";
 	const string announcementSet = "^[ ]*(Set)[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";
 	const string announcementElement = "^[ ]*(Element)[ ]+[a-zA-Z0-9_]+[ ]*[ ]*$";
 	const string functionVoid = "^[ ]*(function)[ ]+[a-zA-Z0-9_]+\\(.*\\)[ ]*$";

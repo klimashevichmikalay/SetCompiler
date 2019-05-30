@@ -12,7 +12,9 @@ public:
 		{
 			cout << "\nError in assigment Element in function \"" << curFunction->getName() << "\" in file: " <<
 				curFunction->getFile() << "\nvar is not initialized.";
-			return;
+			cin.get();
+			cin.get();
+			exit(0);
 		}
 
 		if (strchr("0123456789", sp.split(instruction, ' ')[2].c_str()[0]))

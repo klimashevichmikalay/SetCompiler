@@ -1,0 +1,69 @@
+function runIfFor()
+{    
+   print('in runIfFor') 
+   
+   Set set
+        
+   print('if set empty, print set')   
+   if(!set)
+   {
+     print(set)
+   } 
+        
+   set = initSetEven()
+   
+   print('if set not empty, print set')   
+   if(set)
+   {
+     print(set)
+   }
+   
+   Element el 
+   print('if el empty, print el')   
+   if(!el)
+   {
+     print(el)
+   }   
+}
+  
+function Set initSetEven()
+{
+  Element el
+  Set initSet
+  
+  for(10)
+  {
+   initSet << el
+   el += 2
+  }
+  
+  return initSet     
+}
+
+function Set initSet()
+{
+  Element el
+  Set initSet
+  
+  for(10)
+  {
+   initSet << el
+   el += 1
+  }
+  
+  return initSet     
+}
+
+function Set initSetOdd()
+{
+  Element el
+  Set initSet
+  
+  for(10)
+  {
+   initSet << el
+   el += 3
+  }
+  
+  return initSet     
+}
