@@ -6,18 +6,15 @@ void Function::execute()
 {	
 	for (int i = 0; i < code.size(); i++)
 	{
+		curLine = i;
 		lineType lt = (lineType)checkLine(code[i]);
-		if (lt == EMPTY || lt == RET)
+		if (lt == EMPTY || lt == RET || lt == OPENBR || lt == CLOSEBR)
 			continue;
-		commands.find(lt)->second->executeInstruction(functions, variables, code[i], this);		
+		commands.find(lt)->second->executeInstruction(functions, variables, code[i], this);	
+		i = curLine;
 	}	
 }
 
-void  Function::setFunctions(vector<Function*> _functions)
-{
-	this->functions = _functions;
-	
-}
 
 bool Function::operator==(Function _f)
 {

@@ -112,6 +112,8 @@ int ckeckUnaryPlus(string str)
 	return regConstants::FALSE;
 }
 
+
+
 //////////////////////
 ////////////////////////
 
@@ -172,6 +174,22 @@ int ckeckPrintText(string str)
 	return regConstants::FALSE;
 }
 
+int ckeckIf(string str)
+{
+	std::regex e(regConstants::ifPositive);
+	if (std::regex_match(str, e))
+		return regConstants::IF;
+	return regConstants::FALSE;
+}
+
+int ckeckIfN(string str)
+{
+	std::regex e(regConstants::ifNegation);
+	if (std::regex_match(str, e))
+		return regConstants::IFNEGATION;
+	return regConstants::FALSE;
+}
+
 int checkLine(string line)
 {
 	int i = 0;
@@ -179,7 +197,8 @@ int checkLine(string line)
 
 	while (pointsToCheckFs[i] != NULL)
 	{
-		res = pointsToCheckFs[i](line);
+		res = pointsToCheckFs[i](line);		
+
 		if (res)
 			return res;
 		i++;
@@ -189,6 +208,8 @@ int checkLine(string line)
 
 int(*pointsToCheckFs[])(string line) =
 {
+	ckeckIf,
+	ckeckIfN,	
 	ckeckPrintVar,
 	ckeckPrintText,
 	ckeckAnnouncementElement,

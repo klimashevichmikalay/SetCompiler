@@ -9,8 +9,8 @@ int main()
 {
 	//startTests();
 
-   Compiler comp;
-   comp.compile("file.txt");
+  Compiler comp;
+  comp.compile("file.txt");
 
 	cin.get();
 	cin.get();

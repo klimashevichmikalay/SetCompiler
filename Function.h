@@ -17,10 +17,10 @@ class ICommand;
 
 class Function
 {
+
 private:
 
 	type retType;
-	string name;
 	string file;
 	string returnedValueName;
 	map<string, BaseClass*> variables;
@@ -28,13 +28,51 @@ private:
 	map<string, type> parameters;
 	int startLine;
 	vector<Function*> functions;
-	map <lineType, ICommand*> commands;	
+	map <lineType, ICommand*> commands;
+	int curLine;
 
 public:
 
+	int getCurLine()
+	{
+		return this->curLine;
+	}
+
+	void setName(string _name)
+	{
+		this->name = _name;
+	}
+
+	void setVariables(map<string, BaseClass*>& _variables)
+	{
+		this->variables = _variables;
+	}
+
+	vector<Function*> getFunctions()
+	{
+		return this->functions;
+	}
+
+	void setFunctions(vector<Function*> _functions)
+	{
+		this->functions = _functions;
+	}
+
+	string name;
 	Function();
 	void execute();
 	void clearVariables();
+
+	void setCurLine(int i)
+	{
+		this->curLine = i;
+	}
+
+	map <lineType, ICommand*> getCommands()
+	{
+		return this->commands;
+	}
+
 	void setCommands(map <lineType, ICommand*> _commands)
 	{
 		this->commands = _commands;
@@ -42,7 +80,7 @@ public:
 	vector<string> splitHeader(string str);
 	void setInfo(string _header, type _t);
 	void setCode(vector<string> _code);
-	vector<string> Function::getCode();
+	vector<string> getCode();
 	type getType()
 	{
 		return retType;
@@ -56,12 +94,19 @@ public:
 	map<string, type> getParameters();
 	int getStartLine();
 	bool operator==(Function f);
-	void setFunctions(vector<Function*> _functions);
 	void setReturnedName();
 	bool isAlreadyExists(string name);
 	map<string, BaseClass*> &getVariables()
 	{
 		return this->variables;
+	}
+
+	Function* getFunction(Function* f)
+	{
+		for (int j = 0; j < this->functions.size(); j++)
+			if ((*f) == (*functions[j]))
+				functions[j];
+		return nullptr;
 	}
 };
 

@@ -9,6 +9,9 @@
 #include "UnaryMinus.h";
 #include "UnaryPlus.h";
 #include "PrintVar.h";
+#include "AssigmentOperation.h"
+#include "IfPositive.h"
+#include "IfNegation.h"
 
 Compiler::Compiler()
 {
@@ -46,6 +49,15 @@ void Compiler::setCommands()
 
 	PrintVar *printvar = new PrintVar();
 	commands.insert(pair<lineType, PrintVar*>(PRINTVAR, printvar));
+
+	AssigmentOperation *assop = new AssigmentOperation();
+	commands.insert(pair<lineType, AssigmentOperation*>(ASSOP, assop));
+
+	IfPositive *ifpos = new IfPositive();
+	commands.insert(pair<lineType, IfPositive*>(IF, ifpos));
+
+	IfNegation *ifneg = new IfNegation();
+	commands.insert(pair<lineType, IfNegation*>(IFNEGATION, ifneg));
 }
 
 void  Compiler::compile(string _path)
@@ -163,7 +175,7 @@ void Compiler::formFunctions(string _path)
 			continue;
 		}
 
-		if (FUNCVOID == line || FUNCSET == line || FUNCEL == line)
+		if ((FUNCVOID == line || FUNCSET == line || FUNCEL == line) && IF != line && IFNEGATION != line)
 		{
 			Function* newFunc = new Function();
 

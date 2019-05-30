@@ -199,6 +199,18 @@ void test15()
 	assert(PRINTVAR != checkLine("print('hello')"));
 }
 
+//test if
+void test16()
+{
+	cout << "\ntest16";	 
+	assert(IF == checkLine("if(a)"));
+	assert(IF == checkLine("  if(b) "));
+	assert(IF != checkLine("if()"));
+	assert(IFNEGATION != checkLine("if()"));
+	assert(IFNEGATION != checkLine("if(a)"));
+	assert(IFNEGATION == checkLine("if(!a)"));
+}
+
 void(*tests[])() =
 {
 	test1,
@@ -216,6 +228,7 @@ void(*tests[])() =
 	test13,
 	test14,
 	test15,
+	test16,
 	NULL
 };
 
