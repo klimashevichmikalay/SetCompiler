@@ -11,21 +11,29 @@ function runSetsOperations()
 //инициализация числами 0, 3, 6 и т.д. всего - 10 чисел 
 //реализации этих функций в файле exampleIfFor 
   set1 = initSetOdd()
-  
+
   showDecartMult(set1, st)
   showDiff(set1, st)
   showInters(set1, st)  
-
-//теперь вернем объединение из другой функции 
-  Set summ 
-  summ = getSumm(set1, st)
+  setInSet(set1, st)
   
-  if(summ)
-  {
-     print(summ) 
-  }    
 }
 
+function setInSet(Set set1, Set set2)
+{
+  Set st
+  st << set1
+  st << set2
+
+  Element el
+  for(5)
+  {
+   st << el
+   el += 1
+  }
+  print('set in set')
+  print(st)
+}
 
 function Set getSumm(Set set1, Set set2)
 {

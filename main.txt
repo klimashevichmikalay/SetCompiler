@@ -1,0 +1,14 @@
+include exampleIfFor.txt
+include exampleSetsOperations.txt
+include exampleFunctions.txt
+include exampleElementsOperations.txt
+
+function main()
+{
+  print('in main')
+  
+  runIfFor()
+  
+  print('end main')
+
+}
