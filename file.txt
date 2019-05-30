@@ -1,0 +1,21 @@
+function main()
+{ 
+  print('in main') 
+  
+  Set set  
+  Element el
+  
+  for(10)
+  {
+     el += 1
+     set << el
+  } 
+  
+  if(set)
+  {
+     print(set)
+  }
+  
+  print('end main')
+  
+}

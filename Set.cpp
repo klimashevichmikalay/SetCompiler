@@ -54,7 +54,21 @@ void Set::add(Set _st)
 
 void Set::add(BaseClass *_bc)
 {
-	set.push_back(_bc);
+	BaseClass *toAdd;
+
+	if (_bc->getType() == SET)
+	{
+		Set* set1 = new Set();
+		(*set1) = *((Set*)_bc);
+		this->set.push_back(set1);
+	}
+
+	if (_bc->getType() == ELEMENT)
+	{
+		Element* set1 = new Element();
+		(*set1) = *((Element*)_bc);
+		this->set.push_back(set1);
+	}
 }
 
 void Set::pop_back()

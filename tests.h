@@ -211,6 +211,17 @@ void test16()
 	assert(IFNEGATION == checkLine("if(!a)"));
 }
 
+//test for
+void test17()
+{
+	cout << "\ntest17";
+	assert(FOR == checkLine("for(11)"));
+	assert(FOR == checkLine("  for(11) "));
+	assert(FOR != checkLine("if()"));
+	assert(FOR != checkLine("for()"));	
+	assert(FOR != checkLine("for(ff)"));
+}
+
 void(*tests[])() =
 {
 	test1,
@@ -229,6 +240,7 @@ void(*tests[])() =
 	test14,
 	test15,
 	test16,
+	test17,
 	NULL
 };
 

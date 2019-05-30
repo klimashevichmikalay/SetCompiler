@@ -28,8 +28,9 @@ namespace regConstants
 		UNARYPLUS,//+
 		PRINTVAR,//+
 		ASSOP,//+		
-		IF,//-
-		IFNEGATION,//-
+		IF,//+
+		IFNEGATION,//+
+		FOR,//-
 		FUNCDO,//-
 		ASSFUNC,//-
 		
@@ -57,7 +58,8 @@ namespace regConstants
 	const string printVar = "^[ ]*(print)\\([ ]*[a-zA-Z0-9_]+[ ]*\\)[ ]*$";	
 	const string printText = "^[ ]*(print)\\([ ]*\'[^\']+\'[ ]*\\)[ ]*$";
 	const string ifPositive = "^[ ]*(if){1}\\([a-zA-Z0-9_]+\\)[ ]*$";
-	const string ifNegation = "^[ ]*(if)\\(\\![a-zA-Z0-9_]+\\)[ ]*$";		
+	const string ifNegation = "^[ ]*(if)\\(\\![a-zA-Z0-9_]+\\)[ ]*$";
+	const string dofor = "^[ ]*(for)\\([0-9_]+\\)[ ]*$";
 }
 
 

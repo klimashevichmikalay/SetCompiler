@@ -23,6 +23,6 @@ public:
 				curFunction->getFile() << "\ncannot add to Element.";
 			return;
 		}	
-		((Set*)curFunction->getVariable((sp.split(instruction, ' '))[0]))->add(((Set*)curFunction->getVariable((sp.split(instruction, ' '))[2])));
+		((Set*)curFunction->getVariable((sp.split(instruction, ' '))[0]))->add((curFunction->getVariable((sp.split(instruction, ' '))[2])));
 	}
 };

@@ -112,7 +112,13 @@ int ckeckUnaryPlus(string str)
 	return regConstants::FALSE;
 }
 
-
+int ckeckFOR(string str)
+{
+	std::regex e(regConstants::dofor);
+	if (std::regex_match(str, e))
+		return regConstants::FOR;
+	return regConstants::FALSE;
+}
 
 //////////////////////
 ////////////////////////
@@ -208,6 +214,7 @@ int checkLine(string line)
 
 int(*pointsToCheckFs[])(string line) =
 {
+	ckeckFOR,
 	ckeckIf,
 	ckeckIfN,	
 	ckeckPrintVar,

@@ -12,6 +12,7 @@
 #include "AssigmentOperation.h"
 #include "IfPositive.h"
 #include "IfNegation.h"
+#include "ForClass.h"
 
 Compiler::Compiler()
 {
@@ -58,6 +59,10 @@ void Compiler::setCommands()
 
 	IfNegation *ifneg = new IfNegation();
 	commands.insert(pair<lineType, IfNegation*>(IFNEGATION, ifneg));
+
+	ForClass *fr = new ForClass();
+	commands.insert(pair<lineType, ForClass*>(FOR, fr));
+	
 }
 
 void  Compiler::compile(string _path)

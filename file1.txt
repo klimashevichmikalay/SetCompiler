@@ -1,0 +1,45 @@
+
+fvfv  
+include file2.txt
+
+function func1(Set set, Element el, Set set2)
+{ 
+  Set set
+   Element el
+   set << el   
+   
+   el += 2
+   set = set1 * set2 
+   
+   f()
+   
+   return el  
+} 
+
+function Set func2(Set set, Element el, Set set2)
+{  
+   Set set
+   Element el
+   set << el    
+   
+   el += 2
+   set = set1 * set2
+   
+   f()     
+                         
+   return el   
+} 
+
+function Element func3(Set set2, Set set, Element el)
+{  
+   Set set
+   Element el
+   set << el    
+   
+   el += 2
+   set = set1 * set2
+   
+   f()     
+                         
+   return el   
+} 
