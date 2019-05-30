@@ -193,6 +193,11 @@ void Function::clearVariables()
 	variables.clear();
 }
 
+string Function::getReturnedName()
+{
+	return this->returnedValueName;
+}
+
 BaseClass*  Function::getReturnedValue()
 {
 	return variables.find(returnedValueName)->second;

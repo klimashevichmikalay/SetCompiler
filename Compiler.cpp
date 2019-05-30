@@ -14,6 +14,7 @@
 #include "IfNegation.h"
 #include "ForClass.h"
 #include "FuncDo.h"
+#include "AssigmentFunction.h"
 
 Compiler::Compiler()
 {
@@ -66,7 +67,9 @@ void Compiler::setCommands()
 
 	FuncDo *fdo = new FuncDo();
 	commands.insert(pair<lineType, FuncDo*>(FUNCDO, fdo));
-	
+
+	AssigmentFunction *assf = new AssigmentFunction();
+	commands.insert(pair<lineType, AssigmentFunction*>(ASSFUNC, assf));
 }
 
 void  Compiler::compile(string _path)

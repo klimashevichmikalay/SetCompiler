@@ -64,7 +64,7 @@ public:
 	void setReturnedName();
 	void setParameters(map<string, type> &_parameters);
 	bool isAlreadyExists(string name);
-	
+	string getReturnedName();
 };
 
 class ICommand

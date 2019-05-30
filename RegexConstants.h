@@ -31,7 +31,7 @@ namespace regConstants
 		IF,//+
 		IFNEGATION,//+
 		FOR,//+
-		FUNCDO,//-
+		FUNCDO,//+
 		ASSFUNC,//-		
 	};
 
