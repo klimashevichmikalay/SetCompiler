@@ -13,6 +13,7 @@
 #include "IfPositive.h"
 #include "IfNegation.h"
 #include "ForClass.h"
+#include "FuncDo.h"
 
 Compiler::Compiler()
 {
@@ -62,6 +63,9 @@ void Compiler::setCommands()
 
 	ForClass *fr = new ForClass();
 	commands.insert(pair<lineType, ForClass*>(FOR, fr));
+
+	FuncDo *fdo = new FuncDo();
+	commands.insert(pair<lineType, FuncDo*>(FUNCDO, fdo));
 	
 }
 

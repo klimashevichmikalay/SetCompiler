@@ -30,10 +30,9 @@ namespace regConstants
 		ASSOP,//+		
 		IF,//+
 		IFNEGATION,//+
-		FOR,//-
+		FOR,//+
 		FUNCDO,//-
-		ASSFUNC,//-
-		
+		ASSFUNC,//-		
 	};
 
 	const string include = "^[ ]*(include)[ ]+[a-zA-Z0-9_\\.]+[ ]*[ ]*$";

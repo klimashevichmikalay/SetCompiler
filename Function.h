@@ -30,61 +30,28 @@ private:
 	vector<Function*> functions;
 	map <lineType, ICommand*> commands;
 	int curLine;
+	string name;
 
 public:
 
-	int getCurLine()
-	{
-		return this->curLine;
-	}
-
-	void setName(string _name)
-	{
-		this->name = _name;
-	}
-
-	void setVariables(map<string, BaseClass*>& _variables)
-	{
-		this->variables = _variables;
-	}
-
-	vector<Function*> getFunctions()
-	{
-		return this->functions;
-	}
-
-	void setFunctions(vector<Function*> _functions)
-	{
-		this->functions = _functions;
-	}
-
-	string name;
+	int getCurLine();
+	void setName(string _name);
+	void setVariables(map<string, BaseClass*>& _variables);
+	vector<Function*> getFunctions();
+	void setFunctions(vector<Function*> _functions);
+	void setCurLine(int i);
+	map <lineType, ICommand*> getCommands();
+	void setCommands(map <lineType, ICommand*> _commands);
+	type getType();
+	map<string, BaseClass*> &getVariables();
+	Function* getFunction(Function* f);
 	Function();
 	void execute();
-	void clearVariables();
-
-	void setCurLine(int i)
-	{
-		this->curLine = i;
-	}
-
-	map <lineType, ICommand*> getCommands()
-	{
-		return this->commands;
-	}
-
-	void setCommands(map <lineType, ICommand*> _commands)
-	{
-		this->commands = _commands;
-	}
+	void clearVariables();	
 	vector<string> splitHeader(string str);
 	void setInfo(string _header, type _t);
 	void setCode(vector<string> _code);
-	vector<string> getCode();
-	type getType()
-	{
-		return retType;
-	}
+	vector<string> getCode();	
 	string getName();
 	BaseClass*  getReturnedValue();
 	BaseClass*  getVariable(string str);
@@ -95,19 +62,9 @@ public:
 	int getStartLine();
 	bool operator==(Function f);
 	void setReturnedName();
+	void setParameters(map<string, type> &_parameters);
 	bool isAlreadyExists(string name);
-	map<string, BaseClass*> &getVariables()
-	{
-		return this->variables;
-	}
-
-	Function* getFunction(Function* f)
-	{
-		for (int j = 0; j < this->functions.size(); j++)
-			if ((*f) == (*functions[j]))
-				functions[j];
-		return nullptr;
-	}
+	
 };
 
 class ICommand

@@ -1,6 +1,9 @@
 #include "Function.h"
 #include "CheckSyntax.h"
-Function::Function() {};
+Function::Function() 
+{
+	this->returnedValueName = "";
+};
 
 void Function::execute()
 {	
@@ -15,6 +18,70 @@ void Function::execute()
 	}	
 }
 
+void Function::setParameters(map<string, type> &_parameters)
+{
+	this->parameters = _parameters;
+}
+
+int Function::getCurLine()
+{
+	return this->curLine;
+}
+
+void Function::setName(string _name)
+{
+	this->name = _name;
+}
+
+void Function::setVariables(map<string, BaseClass*>& _variables)
+{
+	this->variables = _variables;
+}
+
+vector<Function*> Function::getFunctions()
+{
+	return this->functions;
+}
+
+void Function::setFunctions(vector<Function*> _functions)
+{
+	this->functions = _functions;
+}
+
+void Function::setCurLine(int i)
+{
+	this->curLine = i;
+}
+
+map <lineType, ICommand*> Function::getCommands()
+{
+	return this->commands;
+}
+
+void Function::setCommands(map <lineType, ICommand*> _commands)
+{
+	this->commands = _commands;
+}
+
+type Function::getType()
+{
+	return retType;
+}
+
+map<string, BaseClass*> &Function::getVariables()
+{
+	return this->variables;
+}
+
+Function* Function::getFunction(Function* f)
+{
+	for (int j = 0; j < functions.size(); j++)
+	{
+		if ((*f) == (*functions[j]))
+		 return	functions[j];
+	}
+	return nullptr;
+}
 
 bool Function::operator==(Function _f)
 {
